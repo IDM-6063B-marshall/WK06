@@ -1,20 +1,30 @@
 // TODO: add more properties using objects
 
-let ypos;
+// curly brackets to define and object
+let aCircle = {};
+
+let aList = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke();
 
-  ypos = -50;
+  aList = [0, 3, 4, 6];
+
+  //this is an object and its members
+  aCircle = {
+    x: width / 2,
+    y: height / 2,
+    d: 60, //diameter
+    a: 255, // alpha (color)
+  };
 }
 
 function draw() {
   background(220, 20, 220);
-  ellipse(width / 2, ypos, 50);
-  ypos += 10;
+  fill(255, aCircle.a);
+//could also write as aCircle["a"] but aCirlce.a is simpler 
+  ellipse(aCircle.x, aCircle.y, aCircle.d);
 
-  if (ypos > height) {
-    ypos = -50;
-  }
+  aCircle.a = (aCircle.a + 4) % 255;
 }
